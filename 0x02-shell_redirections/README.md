@@ -1,2 +1,2 @@
 #!/bin/bash
-/n
+/ n Hello, im studying
