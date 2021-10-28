@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#for loop
 
 for ((i=0;i<=9;i++))
 do
