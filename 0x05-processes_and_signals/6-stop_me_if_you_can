@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#pkill function
+
+pkill -f "$(pgrep 4-to_infinity_and_beyond)"
