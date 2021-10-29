@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#my own PID
+
+echo $$ $BASHPID | cat -
