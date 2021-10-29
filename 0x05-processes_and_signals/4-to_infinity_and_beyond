@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 #infinity loop with sleep
 
-line="To infinity and beyond"
-while read -r line
+while true
 do
-    echo "$line"
+    echo "To infinity and beyond"
     sleep 2
 done
-
-
