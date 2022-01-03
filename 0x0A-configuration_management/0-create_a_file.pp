@@ -1,6 +1,6 @@
 # create a file in /tmp
 
-file { '/tmp/school':
+file {'/tmp/school':
 ensure  => 'present',
 mode    => '0774',
 owner   => 'www-data',
