@@ -2,7 +2,7 @@
 
 file { '/tmp/school':
 mode    => '0774',
-owner   => www-data,
-group   => www-data,
+owner   => 'www-data',
+group   => 'www-data',
 content => 'I love puppet',
 }
