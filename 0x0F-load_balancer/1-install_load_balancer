@@ -4,7 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install haproxy
-confg="/etc/haproxy/haproxy.cfg"
+confg='/etc/haproxy/haproxy.cfg'
 
 echo "
 frontend http
