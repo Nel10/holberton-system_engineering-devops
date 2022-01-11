@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Install your load balancer
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install haproxy
+confg="/etc/haproxy/haproxy.cfg"
+
+echo "
+frontend http
+    bind *:80
+    mode http
+    default_backend icap_pool
+backend icap_pool
+    balance roundrobin
+    mode http
+    server 3461-web-01 35.231.214.154 check
+    server 3461-web-02 18.232.149.70 check" | sudo tee -a $confg
+sudo service haproxy restart
