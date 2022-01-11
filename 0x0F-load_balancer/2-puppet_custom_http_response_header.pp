@@ -11,7 +11,3 @@ exec { 'update':
     add_header X-Server-By ${hostname};",
     math   => '^\location / {',
 }
--> exec { 'restart service':
-    command  => 'sudo service nginx restart',
-    provider => shell,
-}
