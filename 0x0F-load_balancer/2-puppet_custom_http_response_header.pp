@@ -1,28 +1,30 @@
 # Add a custom HTTP header with Puppet
 
+$str = "add_header X-Served-By ${hostname};"
+
 exec { 'update':
-    command  => '/user/bin/apt-get update',
+  command => '/usr/bin/apt-get update',
 }
 -> package { 'nginx':
-    ensure  => installed,
-    require => Exec['update']
+  ensure  => installed,
+  require => Exec['update']
 }
 -> file_line { 'Add redirection, 301':
-    ensure => 'present',
-    path   => '/etc/nginx/sities-available/default',
-    after  => 'liste 80 default_server;',
-    line   => 'rewrite ^/redirect_me https://www.linkedin.com/in/shannel-bejarano-022801215/ permanent;',
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://twitter.com/Luffy_981 permanent;',
 }
--> file_line { 'custom http server':
-    ensure => 'present',
-    path   => '/etc/nginx/sities-available/default',
-    after  => 'listen 80 default_server;',
-    line   => "add_header X-Server-By ${hostname};",
+-> file_line { 'Add custom HTTP server':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => $str,
 }
 -> file { '/var/www/html/index.html':
-    content -> 'Hello World',
+  content => 'Hello World',
 }
 -> service { 'nginx':
-    ensure  => running,
-    require => package['nginx'],
+  ensure  => running,
+  require => Package['nginx'],
 }
