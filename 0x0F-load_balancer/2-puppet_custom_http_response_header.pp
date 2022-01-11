@@ -4,7 +4,7 @@ exec { 'update':
     command  => '/user/bin/apt-get update',
 }
 -> package { 'nginx':
-    ensure => installed,
+    ensure  => installed,
     require => Exec['update']
 }
 -> file_line { 'Add redirection, 301':
@@ -15,14 +15,14 @@ exec { 'update':
 }
 -> file_line { 'custom http server':
     ensure => 'present',
-    path => '/etc/nginx/sities-available/default',
-    after => 'liste 80 default_server;',
-    line => 'add_header X-Server-By ${hostname};',
+    path   => '/etc/nginx/sities-available/default',
+    after  => 'liste 80 default_server;',
+    line   => "add_header X-Server-By ${hostname};",
 }
 -> file { '/var/www/html/index.html':
     content -> 'Hello World',
 }
--> service { 'nginx': 
-    ensure => running,
+-> service { 'nginx':
+    ensure  => running,
     require => package['nginx'],
 }
