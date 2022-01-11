@@ -5,7 +5,7 @@ exec { 'update':
 }
 -> package { 'nginx':
     ensure => installed,
-    require => Exec['update'],
+    require => Exec['update']
 }
 -> file_line { 'redirections':
     ensure => present,
