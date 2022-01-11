@@ -16,7 +16,7 @@ exec { 'update':
 -> file_line { 'custom http server':
     ensure => 'present',
     path   => '/etc/nginx/sities-available/default',
-    after  => 'liste 80 default_server;',
+    after  => 'listen 80 default_server;',
     line   => "add_header X-Server-By ${hostname};",
 }
 -> file { '/var/www/html/index.html':
