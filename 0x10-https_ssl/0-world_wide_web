@@ -5,7 +5,7 @@ display_info ()
 {
     domain=$1
     sub_domain=$2
-    dig "$sub_domain.$domain" | awk '/ANSWER SECTION:/ {getline; printf"The subdomain %s is a %s record and points to %s\n", var $4, $5}' var="$sub_domain"
+    dig "$sub_domain.$domain" | awk '/ANSWER SECTION:/ {getline; printf"The subdomain %s is a %s record and points to %s\n", $2, $4, $5}' 
 }
 for sub_domain in "www" "lb-01" "web-01" "web-02"
 do
