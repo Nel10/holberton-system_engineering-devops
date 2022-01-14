@@ -38,7 +38,7 @@ frontend http
     mode http
     default_backend icap_pool
 frontend https
-    bind *:443 ssl ctr /etc/haproxy/certs/www.shannel.tech.pem
+    ssl crt /etc/letsencrypt/live/www.shannel.tech/fullchain.pem
     default_backend icap_pool
 backend icap_pool
     balance roundrobin
